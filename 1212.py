@@ -1,16 +1,19 @@
+s = list(input())
+
 def makeBinary(num) :
     if num > 3 : # 100 101 110 111
-        return (num//2)//2,(num//2)%2,num%2
-    elif num == 1 : # 001
-        return '001'
-    else : # 000 010 011
-        return ((0, num//2, num%2))
+        return ''.join([str((num//2)//2),str((num//2)%2),str(num%2)])
+    else : # 000 001 010 011
+        return ''.join(['0', str(num//2), str(num%2)])
         
-s 
-s = list(input())
 result = []
 
 for i in range(len(s)) :
-    result = ''.join(str(makeBinary(s[i])))
+    result.append(makeBinary(int(s[i])))
+result = ''.join(result)
 
-print(result)
+if result == '000' :
+    print('0')
+else :
+    print(result.lstrip("0"))
+    
